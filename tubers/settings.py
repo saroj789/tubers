@@ -108,7 +108,8 @@ DATABASES = {
         'NAME': 'tubers',
         "USER": 'postgres',
         'PASSWORD': '1234',
-        'HOST': 'localhost'
+        #'HOST': 'localhost'
+        'HOST' : "192.168.43.20",
     }
 }
 
