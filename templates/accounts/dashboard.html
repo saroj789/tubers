@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   {% comment %} <h1> abc  {{ hiretubers }}  </h1> {% endcomment %}
+   
+  <main class="contact-us">
+ 
+    <div class="row">
+      <div class="col-md-4 offset-md-4 ">
+      {% include "messages.html" %}
+    </div>
+
+    <div class="banner">
+      <img src="{% static './assets/images/bg-banner.png' %}" alt="" class="img-fluid w-100">
+      <h1 class="text-center">
+        Dashboard
+      </h1>
+    </div>
+
+    <section class="container mt-5">
+      <h2 class="text-center">Welcome to Dashboard</h2>
+      <h4 class="text-center text-white-50">
+        hi <span class='text-primary' >{{ user.username | upper }} </span> ! Hope you are having a good day
+      </h4>
+      <br>
+      <div class="table-responsive- mt-3">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">YTubers_name</th>
+              <th scope="col">City</th>
+              <th scope="col">Visit</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for hiretuber  in hiretubers %}
+                  <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{hiretuber.tuber_name}}</td>
+                    <td>{{hiretuber.city}}</td>
+                    <td>
+                      <div class="btn btn-accent">Go to Page </div>
+                    </td>
+                  </tr>
+               {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  
+  
+  
+  </main>
+
+{% endblock %}
