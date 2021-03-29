@@ -5,11 +5,14 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
 from hiretubers.models import Hiretuber
+from .decoretors import unauthenticated_user
 
 # Create your views here.
 
+@unauthenticated_user
 def login(request):
-     
+    # if request.user.is_authenticated:   # removed bz we use our decorators 
+    #     return redirect('home')
     if request.method=='POST':
         
         username=request.POST['username']
@@ -38,7 +41,13 @@ def logout_user(request):
     return redirect('home')
 
 
+
+@unauthenticated_user
 def register(request):
+    #print(request.user.is_authenticated)
+    # if request.user.is_authenticated:                              # removed bz we use our decorators 
+    #     return redirect('home')
+
     if request.method=='POST':
         first_name=request.POST['firstname']
         last_name=request.POST['lastname']
@@ -77,5 +86,5 @@ def dashboard(request):
     #to show dashboard info from db
     hiretubers=Hiretuber.objects.filter(email=request.user.email)       # request.user is logged in user. if not logged in then it- AnnonymousUser
     data={ 'hiretubers' : hiretubers }  
-    print(hiretubers)                                  
+    #print(hiretubers)                                  
     return render(request,'accounts/dashboard.html',data)
