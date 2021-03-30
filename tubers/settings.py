@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+   
     'contactinfo.apps.ContactinfoConfig',
     'contactus.apps.ContactusConfig',
     'hiretubers.apps.HiretubersConfig',
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
