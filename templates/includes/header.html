@@ -1,13 +1,13 @@
 <header class="header ">
     <div class="container">
       <div class="row ">
-        <div class="col-md-8  header-info">
+        <div class="col-md-6  header-info">
     
             <a href="mailto:{{contactinfo.header_email }}" class="mr-3">{{contactinfo.header_email }}</a>
-            <span>Call at: +91 {{contactinfo.header_phone }} </span>
+            <span class='d-none d-md-inline'>Call at: +91 {{contactinfo.header_phone }} </span>
     
         </div>
-        <div class="header-buttons col-md-4 d-flex justify-content-end">
+        <div class="header-buttons col-md-6 d-flex justify-content-end">
 
           {% if user.is_authenticated %}
               <a class="btn btn-accent mr-3" href="{% url 'dashboard' %}">Dashboard</a>
